@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;           
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Validation\Rule;
 
 class ProjectController extends Controller
 {
@@ -40,6 +41,7 @@ class ProjectController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',
+            'status'=> ['required', Rule::in(['Ativo', 'Espera', 'Completo'])],
         ]);
 
         // 2. Criar o projeto associado ao usuário logado
@@ -65,6 +67,7 @@ class ProjectController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',
+            'status'=> ['required', Rule::in(['Ativo', 'Espera', 'Completo'])],
             ]);
 
             $project->update($validated);

@@ -9,9 +9,17 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __("You're logged in!") }}
+                    <div class="p-6 text-gray-900">
+                        <h3 class="text-lg font-semibold mb-4">Projects Overview</h3>
+
+                        {{-- Aqui é onde o nosso gráfico será renderizado --}}
+                        <div style="width: 50%; margin: auto;">
+                            <canvas id="projectStatusChart"></canvas>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
 </x-app-layout>

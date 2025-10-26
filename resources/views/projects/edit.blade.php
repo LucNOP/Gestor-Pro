@@ -26,7 +26,20 @@
                             <textarea id="description" name="description"
                                 class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">{{ old('description', $project->description) }}</textarea>
                         </div>
-
+                        <div class="mt-4">
+                            <label for="status" class="block font-medium text-sm text-gray-700">Status</label>
+                            <select id="status" name="status"
+                                class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                                <option value="Ativo" {{ $project->status == 'Ativo' ? 'selected' : '' }}>Ativo
+                                </option>
+                                <option value="Espera" {{ $project->status == 'Espera' ? 'selected' : '' }}>Em
+                                    Espera
+                                </option>
+                                </option>
+                                <option value="Completo" {{ $project->status == 'Completo' ? 'selected' : '' }}>
+                                    Completo</option>
+                            </select>
+                        </div>
                         <div class="flex items-center justify-end mt-4">
                             <a href="{{ route('projects.index') }}"
                                 class="text-sm text-gray-600 hover:text-gray-900 mr-4">
